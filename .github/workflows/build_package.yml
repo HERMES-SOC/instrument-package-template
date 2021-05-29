@@ -1,4 +1,4 @@
-name: Build Example Package
+name: Build Example Package and run tests
 
 on:
   push:
@@ -48,11 +48,3 @@ jobs:
       run: |
         cd packagename
         tox -e build_docs
-    - name: Publish Repo
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BASE_BRANCH: main # The branch the action should deploy from.
-        BRANCH: 'example-build' # The branch the action should deploy to.
-        FOLDER: packagename/ # The folder the action should deploy
-        CLEAN: true
